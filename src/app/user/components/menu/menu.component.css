@@ -1,0 +1,105 @@
+/* Estilos generales */
+.flex {
+  display: flex;
+}
+.h-screen {
+  height: 100vh;
+}
+.w-64 {
+  width: 16rem;
+}
+.bg-white {
+  background-color: #8DBBED;
+}
+.p-5 {
+  padding: 1.25rem;
+}
+.flex-col {
+  display: flex;
+  flex-direction: column;
+}
+.items-center {
+  align-items: center;
+}
+.mt-2 {
+  margin-top: 0.5rem;
+}
+.text-lg {
+  font-size: 1.125rem;
+}
+.font-semibold {
+  font-weight: 600;
+}
+.mt-10 {
+  margin-top: 2.5rem;
+}
+.space-y-2 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-y-reverse: 0;
+  margin-top: calc(0.5rem * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(0.5rem * var(--tw-space-y-reverse));
+}
+.inline-block {
+  display: inline-block;
+}
+.w-5 {
+  width: 1.25rem;
+}
+.h-5 {
+  height: 1.25rem;
+}
+.mr-2 {
+  margin-right: 0.5rem;
+}
+.mt-auto {
+  margin-top: auto;
+}
+.flex-grow {
+  flex-grow: 1;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.p-10 {
+  padding: 2.5rem;
+}
+.text-5xl {
+  font-size: 3rem;
+}
+.font-bold {
+  font-weight: 700;
+}
+.text-center {
+  text-align: center;
+}
+.text-black {
+  color: black;
+}
+.mb-10 {
+  margin-bottom: 2.5rem;
+}
+.grid {
+  display: grid;
+}
+.grid-cols-3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+.gap-4 {
+  gap: 1rem;
+}
+.bg-blue-200 {
+  background-color: #bfdbfe;
+}
+.text-3xl {
+  font-size: 1.875rem;
+}
+/* Añadir al final de tu archivo CSS */
+.avatar-card{
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+
+/* Imagen de fondo */
+.main-background {
+  background-image: url('https://www.bbva.com/wp-content/uploads/2022/06/BBVA-finanzas-personales-y-corporativas.jpg');
+}

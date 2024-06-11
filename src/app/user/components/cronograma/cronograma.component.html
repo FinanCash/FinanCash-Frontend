@@ -1,0 +1,48 @@
+<mat-sidenav-container class="example-container">
+  <mat-sidenav mode="side" opened>
+    <mat-toolbar color="primary">EMPRESA 1</mat-toolbar>
+    <mat-list>
+      <mat-list-item *ngFor="let link of links">
+        <mat-icon mat-list-icon>{{ link.icon }}</mat-icon>
+        <a mat-line [href]="link.href">{{ link.text }}</a>
+      </mat-list-item>
+    </mat-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <span>CRONOGRAMA</span>
+    </mat-toolbar>
+    <div class="content">
+      <mat-card>
+        <table mat-table [dataSource]="rows" class="mat-elevation-z8">
+          <ng-container matColumnDef="cuota">
+            <th mat-header-cell *matHeaderCellDef> N° Cuota </th>
+            <td mat-cell *matCellDef="let row"> {{row.cuota}} </td>
+          </ng-container>
+          <ng-container matColumnDef="amortizacion">
+            <th mat-header-cell *matHeaderCellDef> Amortización </th>
+            <td mat-cell *matCellDef="let row"> {{row.amortizacion}} </td>
+          </ng-container>
+          <ng-container matColumnDef="interes">
+            <th mat-header-cell *matHeaderCellDef> Interes </th>
+            <td mat-cell *matCellDef="let row"> {{row.interes}} </td>
+          </ng-container>
+          <ng-container matColumnDef="monto">
+            <th mat-header-cell *matHeaderCellDef> Mto. a Pagar </th>
+            <td mat-cell *matCellDef="let row"> {{row.monto}} </td>
+          </ng-container>
+          <ng-container matColumnDef="fechaVencimiento">
+            <th mat-header-cell *matHeaderCellDef> F.Vcto </th>
+            <td mat-cell *matCellDef="let row"> {{row.fechaVencimiento}} </td>
+          </ng-container>
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+      </mat-card>
+      <div class="buttons">
+        <button mat-raised-button color="primary">Retornar</button>
+        <button mat-raised-button color="accent">Generar Crédito</button>
+      </div>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
