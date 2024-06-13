@@ -4,6 +4,7 @@ import {UserService} from "../../../services/user.service";
 import {MatTableDataSource, MatTableModule} from "@angular/material/table";
 import {MatIcon} from "@angular/material/icon";
 import {CommonModule} from "@angular/common";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-deudas',
@@ -19,8 +20,22 @@ import {CommonModule} from "@angular/common";
 export class DeudasComponent implements OnInit {
   dataSource!: MatTableDataSource<any>;
 
-  constructor(private userService: UserService) {}
-
+  constructor(private userService: UserService,private router: Router) {}
+  onLogin() {
+    this.router.navigate(['login']);
+  }
+  onUsuarios() {
+    this.router.navigate(['clientes']);
+  }
+  onDeudas() {
+    this.router.navigate(['deudas']);
+  }
+  onCredito() {
+    this.router.navigate(['credito']);
+  }
+  onMenu() {
+    this.router.navigate(['home']);
+  }
   ngOnInit(): void {
     this.getData();
   }

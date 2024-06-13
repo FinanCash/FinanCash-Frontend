@@ -16,6 +16,11 @@ import {MatToolbar} from "@angular/material/toolbar";
 import {UserService} from "../../../services/user.service";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {MatFormField} from "@angular/material/form-field";
+import { MatToolbarModule } from '@angular/material/toolbar'
+import { MatIconModule } from '@angular/material/icon';
+import { Router } from '@angular/router';
+
+
 
 @Component({
   selector: 'app-registrar-clientes-siguiente',
@@ -23,6 +28,8 @@ import {MatFormField} from "@angular/material/form-field";
   imports: [
     MatCard,
     MatCell,
+    MatIconModule,
+    MatToolbarModule,
     MatCellDef,
     MatColumnDef,
     MatHeaderCell,
@@ -46,7 +53,19 @@ import {MatFormField} from "@angular/material/form-field";
   styleUrl: './registrar-clientes-siguiente.component.css'
 })
 export class RegistrarClientesSiguienteComponent{
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService, private router: Router) {} // Inyecta el servicio correcto
+  onLogin() {
+    this.router.navigate(['home']);
+  }
+  onUsuarios() {
+    this.router.navigate(['clientes']);
+  }
+  onDeudas() {
+    this.router.navigate(['deudas']);
+  }
+  onCredito() {
+    this.router.navigate(['credito']);
+  }
 
   onSubmit(form: any): void {
     if (form.valid) {

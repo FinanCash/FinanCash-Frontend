@@ -4,9 +4,7 @@ import {HttpClientModule} from "@angular/common/http";
 import {MatIcon, MatIconModule} from "@angular/material/icon";
 import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatCard, MatCardContent, MatCardFooter, MatCardHeader, MatCardModule} from "@angular/material/card";
-import {RouterLink} from "@angular/router";
-import {BrowserModule} from "@angular/platform-browser";
-import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {Router, RouterLink} from "@angular/router";
 import {MatButtonModule} from "@angular/material/button";
 import {MatInputModule} from "@angular/material/input";
 
@@ -24,8 +22,6 @@ import {MatInputModule} from "@angular/material/input";
     MatIcon,
     MatCardModule,
     RouterLink,
-    BrowserModule,
-    BrowserAnimationsModule,
     MatButtonModule,
     MatInputModule,
     MatFormFieldModule
@@ -34,5 +30,10 @@ import {MatInputModule} from "@angular/material/input";
   styleUrl: './register.component.css'
 })
 export class RegisterComponent {
+  constructor(private router: Router) { }
+
+  onRegisterClick() {
+    this.router.navigate(['login']);
+  }
 
 }

@@ -4,7 +4,7 @@ import {MatIcon, MatIconModule} from "@angular/material/icon";
 import {MatToolbarModule} from "@angular/material/toolbar";
 import {HttpClientModule} from "@angular/common/http";
 import {UserService} from "../../../services/user.service";
-import {RouterLink} from "@angular/router";
+import {Router, RouterLink} from "@angular/router";
 @Component({
   selector: 'app-menu',
   standalone: true,
@@ -28,7 +28,19 @@ export class MenuComponent implements OnInit {
   saldoTotal: number = 0;
   clientesActivos: number = 0;
 
-  constructor(private userService: UserService) {} // Inyecta el servicio correcto
+  constructor(private userService: UserService, private router: Router) {} // Inyecta el servicio correcto
+  onLogin() {
+    this.router.navigate(['login']);
+  }
+  onUsuarios() {
+    this.router.navigate(['clientes']);
+  }
+  onDeudas() {
+    this.router.navigate(['deudas']);
+  }
+  onCredito() {
+    this.router.navigate(['credito']);
+  }
 
   ngOnInit() {
     // Cambia los endpoints según sea necesario

@@ -1,10 +1,10 @@
 <div class="relative flex min-h-screen items-center justify-center bg-gray-100 dark:bg-gray-800">
   <img
-    src="/placeholder.svg"
+    src="https://images.unsplash.com/photo-1641440616173-7241e6fe6be9?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
     alt="Background"
-    width={1920}
-    height={1080}
-    className="absolute inset-0 h-full w-full object-cover"
+    width="1920"
+    height="1080"
+    class="absolute inset-0 h-full w-full object-cover z-0"
   />
   <div class="relative z-10 mx-4 w-full max-w-2xl rounded-lg bg-white shadow-lg dark:bg-gray-950 md:mx-0">
     <div class="grid grid-cols-2 rounded-lg">
@@ -30,8 +30,7 @@
               <input matInput placeholder="Contraseña" type="password">
             </mat-form-field>
           </div>
-          <button mat-raised-button color="primary" class="w-full">INICIAR SESIÓN</button>
-          <button mat-button color="primary" (click)="onRecoveryPasswordClick()">¿Olvidaste tu contraseña?</button>
+          <button mat-raised-button color="primary" class="w-full" (click)="onLogin()">INICIAR SESIÓN</button>
         </div>
       </div>
     </div>

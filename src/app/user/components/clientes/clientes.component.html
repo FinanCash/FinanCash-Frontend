@@ -7,27 +7,23 @@
       <h2 class="mt-2 text-lg font-semibold">EMPRESA 1</h2>
     </div>
     <nav class="space-y-2">
-      <a mat-button color="primary" href="#">
+      <a mat-button color="primary" (click)="onMenu()">
         <mat-icon>home</mat-icon>
         <span>MENÚ PRINCIPAL</span>
       </a>
-      <a mat-button color="primary" href="#">
+      <a mat-button color="primary" (click)="onUsuarios()">
         <mat-icon>people</mat-icon>
         <span>USUARIOS</span>
       </a>
-      <a mat-button color="primary" href="#">
+      <a mat-button color="primary" (click)="onCredito()">
         <mat-icon>credit_card</mat-icon>
         <span>CRÉDITOS</span>
       </a>
-      <a mat-button color="primary" href="#">
+      <a mat-button color="primary" (click)="onDeudas()">
         <mat-icon>money</mat-icon>
         <span>DEUDAS</span>
       </a>
-      <a mat-button color="primary" href="#">
-        <mat-icon>shopping_cart</mat-icon>
-        <span>PRODUCTOS</span>
-      </a>
-      <a mat-button color="primary" href="#">
+      <a mat-button color="primary" (click)="onLogin()">
         <mat-icon>exit_to_app</mat-icon>
         <span>CERRAR SESIÓN</span>
       </a>
@@ -36,7 +32,7 @@
   <main class="flex-1 p-12">
     <div class="flex justify-between items-center mb-8">
       <h1 class="text-5xl font-bold text-white">CLIENTES</h1>
-      <button mat-raised-button color="primary" class="h-10 px-4 py-2">
+      <button mat-raised-button color="primary" class="h-10 px-4 py-2" (click)="onRegistrar()">
         Registrar
       </button>
     </div>

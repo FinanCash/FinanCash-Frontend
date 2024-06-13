@@ -12,26 +12,22 @@
           <mat-icon class="inline-block w-5 h-5 mr-2">home</mat-icon>
           MENÚ PRINCIPAL
         </li>
-        <li>
+        <li (click)="onUsuarios()">
           <mat-icon class="inline-block w-5 h-5 mr-2">people</mat-icon>
           USUARIOS
         </li>
-        <li>
+        <li (click)="onCredito()">
           <mat-icon class="inline-block w-5 h-5 mr-2">credit_card</mat-icon>
           CRÉDITOS
         </li>
-        <li>
+        <li (click)="onDeudas()">
           <mat-icon class="inline-block w-5 h-5 mr-2">file_copy</mat-icon>
           DEUDAS
         </li>
-        <li>
-          <mat-icon class="inline-block w-5 h-5 mr-2">inventory</mat-icon>
-          PRODUCTOS
-        </li>
       </ul>
     </nav>
-    <div class="mt-auto">
-      <mat-icon class="inline-block w-5 h-5 mr-2">logout</mat-icon>
+    <div class="mt-auto" (click)="onLogin()">
+      <mat-icon class="inline-block w-5 h-5 mr-2"  >logout</mat-icon>
       CERRAR SESIÓN
     </div>
   </aside>

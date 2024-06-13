@@ -1,71 +1,65 @@
 <div class="flex h-screen bg-f9d5a7">
-  <aside class="w-64 bg-f2a65a p-5">
+  <aside class="w-64 bg-white p-5 flex flex-col items-center">
     <div class="flex flex-col items-center">
-      <mat-avatar>
-        <img src="/placeholder.svg" alt="Empresa 1 Logo" />
-        <mat-avatar-fallback>1</mat-avatar-fallback>
-      </mat-avatar>
-      <h2 class="mt-2 mb-4 text-xl font-semibold text-white">EMPRESA 1</h2>
+      <div class="avatar-card mb-4">
+        <img src="https://cdn-icons-png.flaticon.com/512/3135/3135768.png" class="avatar-img" />
+      </div>
+      <h2 class="mt-2 text-lg font-semibold">EMPRESA 1</h2>
     </div>
-    <nav class="mt-10">
-      <ul class="space-y-2">
-        <li>
-          <app-home-icon class="inline-block w-5 h-5 mr-2 text-white"></app-home-icon>
-          <a class="text-white" href="#">MENÚ PRINCIPAL</a>
+    <nav class="mt-10 w-full">
+      <ul class="space-y-2 w-full">
+        <li class="flex items-center">
+          <mat-icon class="inline-block w-5 h-5 mr-2">home</mat-icon>
+          MENÚ PRINCIPAL
         </li>
-        <li>
-          <app-users-icon class="inline-block w-5 h-5 mr-2 text-white"></app-users-icon>
-          <a class="text-white" href="#">USUARIOS</a>
+        <li class="flex items-center cursor-pointer" (click)="onUsuarios()">
+          <mat-icon class="inline-block w-5 h-5 mr-2">people</mat-icon>
+          USUARIOS
         </li>
-        <li>
-          <app-credit-card-icon class="inline-block w-5 h-5 mr-2 text-white"></app-credit-card-icon>
-          <a class="text-white" href="#">CRÉDITOS</a>
+        <li class="flex items-center cursor-pointer" (click)="onCredito()">
+          <mat-icon class="inline-block w-5 h-5 mr-2">credit_card</mat-icon>
+          CRÉDITOS
         </li>
-        <li>
-          <app-waves-icon class="inline-block w-5 h-5 mr-2 text-white"></app-waves-icon>
-          <a class="text-white" href="#">DEUDAS</a>
+        <li class="flex items-center cursor-pointer" (click)="onDeudas()">
+          <mat-icon class="inline-block w-5 h-5 mr-2">file_copy</mat-icon>
+          DEUDAS
         </li>
       </ul>
     </nav>
-    <div class="mt-auto">
-      <app-log-out-icon class="inline-block w-5 h-5 mr-2 text-white"></app-log-out-icon>
-      <a class="text-white" href="#">CERRAR SESIÓN</a>
+    <div class="mt-auto w-full flex items-center cursor-pointer" (click)="onLogin()">
+      <mat-icon class="inline-block w-5 h-5 mr-2">logout</mat-icon>
+      CERRAR SESIÓN
     </div>
   </aside>
   <main class="flex flex-col items-center justify-center flex-1 p-12">
     <h1 class="mb-8 text-4xl font-bold text-white">REGISTRAR CLIENTE</h1>
     <div class="w-full max-w-4xl grid grid-cols-2 gap-8 p-8 bg-white bg-opacity-50 rounded-lg shadow">
-      <form (ngSubmit)="onSubmit(userForm)" #userForm="ngForm" class="space-y-4">
-        <mat-form-field>
+      <form (ngSubmit)="onSubmit(userForm)" #userForm="ngForm" class="space-y-4 col-span-2">
+        <mat-form-field class="col-span-1">
           <input matInput placeholder="TIPO DE TASA DE INTERES" name="tipo_tasa_interes" ngModel required>
         </mat-form-field>
-        <mat-form-field>
+        <mat-form-field class="col-span-1">
           <input matInput placeholder="TASA DE INTERES" name="tasa_interes" ngModel required>
         </mat-form-field>
-        <mat-form-field>
+        <mat-form-field class="col-span-1">
           <input matInput placeholder="PERIODO PARA EL INTERES" name="periodo_tasa_interes" ngModel required>
         </mat-form-field>
-        <mat-form-field>
+        <mat-form-field class="col-span-1">
           <input matInput placeholder="DIA DE PAGO" name="dia_pago" ngModel required>
         </mat-form-field>
-        <mat-form-field>
+        <mat-form-field class="col-span-1">
           <input matInput placeholder="TIPO DE TASA DE MORATORIA" name="tipo_tasa_moratoria" ngModel required>
         </mat-form-field>
-        <mat-form-field>
+        <mat-form-field class="col-span-1">
           <input matInput placeholder="TASA MORATORIA" name="tasa_moratoria" ngModel required>
         </mat-form-field>
-        <mat-form-field>
+        <mat-form-field class="col-span-1">
           <input matInput placeholder="PERIODO PARA LA TASA MORATORIA" name="periodo_tasa_moratoria" ngModel required>
         </mat-form-field>
-        <div class="flex justify-center">
-          <mat-avatar>
-            <img src="/placeholder.svg" alt="User Placeholder" />
-            <mat-avatar-fallback>U</mat-avatar-fallback>
-          </mat-avatar>
-        </div>
+        
         <div class="col-span-2 flex justify-between pt-4">
           <button mat-button variant="outline" type="button" (click)="goBack()">REGRESAR</button>
-          <button mat-button type="submit">REGISTRAR</button>
+          <button mat-button type="submit" (click)="onLogin()">REGISTRAR</button>
         </div>
       </form>
     </div>

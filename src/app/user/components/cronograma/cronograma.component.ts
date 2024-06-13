@@ -8,8 +8,8 @@ import {MatIconModule} from "@angular/material/icon";
 import {MatTableModule} from "@angular/material/table";
 import {MatButtonModule} from "@angular/material/button";
 import {HttpClientModule} from "@angular/common/http";
-import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
-import {BrowserModule} from "@angular/platform-browser";
+import { Router } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 interface Link {
   href: string;
@@ -28,8 +28,6 @@ interface Row {
   selector: 'app-cronograma',
   standalone: true,
   imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
     HttpClientModule,
     MatSidenavModule,
     MatToolbarModule,
@@ -37,7 +35,8 @@ interface Row {
     MatIconModule,
     MatTableModule,
     MatListModule,
-    MatCardModule
+    MatCardModule,
+    CommonModule
   ],
   templateUrl: './cronograma.component.html',
   styleUrl: './cronograma.component.css'
@@ -55,7 +54,14 @@ export class CronogramaComponent implements OnInit {
   public rows: Row[] = [];
   public displayedColumns: string[] = ['cuota', 'amortizacion', 'interes', 'monto', 'fechaVencimiento'];
 
-  constructor(private userService: UserService) {}
+  constructor(private userService: UserService,private router: Router) {}
+
+  onCredito() {
+    this.router.navigate(['credito']);
+  }
+  onMenu() {
+    this.router.navigate(['home']);
+  }
 
   ngOnInit(): void {
     this.userService.getData('/api/data').subscribe((data: Row[]) => {

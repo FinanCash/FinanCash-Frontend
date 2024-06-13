@@ -9,7 +9,8 @@
   width: 16rem;
 }
 .bg-white {
-  background-color: #8DBBED;
+  background-color: rgba(249, 213, 167, 1
+  );
 }
 .p-5 {
   padding: 1.25rem;
@@ -87,7 +88,7 @@
   gap: 1rem;
 }
 .bg-blue-200 {
-  background-color: #bfdbfe;
+  background-color: rgba(249, 213, 167, 1);
 }
 .text-3xl {
   font-size: 1.875rem;

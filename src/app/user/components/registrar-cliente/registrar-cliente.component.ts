@@ -8,6 +8,7 @@ import {UserService} from "../../../services/user.service";
 import {MatCard} from "@angular/material/card";
 import {MatTableModule} from "@angular/material/table";
 import {FormsModule} from "@angular/forms";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-registrar-cliente',
@@ -28,8 +29,25 @@ import {FormsModule} from "@angular/forms";
   templateUrl: './registrar-cliente.component.html',
   styleUrl: './registrar-cliente.component.css'
 })
+
 export class RegistrarClienteComponent{
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService, private router: Router) {} // Inyecta el servicio correcto
+  onLogin() {
+    this.router.navigate(['login']);
+  }
+  onUsuarios() {
+    this.router.navigate(['clientes']);
+  }
+  onDeudas() {
+    this.router.navigate(['deudas']);
+  }
+  onCredito() {
+    this.router.navigate(['credito']);
+  }
+
+  onRegistrar(){
+    this.router.navigate(['contrato']);
+  }
 
   onSubmit(form: any): void {
     if (form.valid) {
