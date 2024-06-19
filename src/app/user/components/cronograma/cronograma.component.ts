@@ -43,12 +43,11 @@ interface Row {
 })
 export class CronogramaComponent implements OnInit {
   public links: Link[] = [
-    { href: '#', icon: 'home', text: 'MENÚ PRINCIPAL' },
-    { href: '#', icon: 'group', text: 'USUARIOS' },
-    { href: '#', icon: 'credit_card', text: 'CRÉDITOS' },
-    { href: '#', icon: 'handshake', text: 'DEUDAS' },
-    { href: '#', icon: 'inventory', text: 'PRODUCTOS' },
-    { href: '#', icon: 'logout', text: 'CERRAR SESIÓN' }
+    { href: '/home', icon: 'home', text: 'MENÚ PRINCIPAL' },
+    { href: '/clientes', icon: 'group', text: 'USUARIOS' },
+    { href: '/credito', icon: 'credit_card', text: 'CRÉDITOS' },
+    { href: '/deudas', icon: 'handshake', text: 'DEUDAS' },
+    { href: '/login', icon: 'logout', text: 'CERRAR SESIÓN' }
   ];
 
   public rows: Row[] = [];

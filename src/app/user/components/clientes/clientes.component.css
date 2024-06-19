@@ -1,11 +1,217 @@
-.bg-image {
-  background-image: url('/');
+.flex {
+  display: flex;
 }
 
-.aspect-square {
-  aspect-ratio: 1;
+.h-screen {
+  height: 100vh;
 }
 
-.hover\:bg-muted\:50:hover {
-  background-color: rgba(209, 213, 219, 0.5);
+.w-64 {
+  width: 16rem; /* Ajustar según sea necesario */
+}
+
+.p-5 {
+  padding: 1.25rem; /* Ajustar según sea necesario */
+}
+
+.bg-f9d5a7 {
+  background-color: #f9d5a7;
+}
+
+.text-white {
+  color: rgb(3, 3, 3);
+}
+
+.mt-2 {
+  margin-top: 0.5rem; /* Ajustar según sea necesario */
+}
+
+.mb-4 {
+  margin-bottom: 1rem; /* Ajustar según sea necesario */
+}
+
+.text-lg {
+  font-size: 1.125rem; /* Ajustar según sea necesario */
+}
+
+.font-semibold {
+  font-weight: 600;
+}
+
+.mt-10 {
+  margin-top: 2.5rem; /* Ajustar según sea necesario */
+}
+
+.space-y-2 > * + * {
+  margin-top: 0.5rem; /* Ajustar según sea necesario */
+}
+
+.inline-block {
+  display: inline-block;
+}
+
+.w-5 {
+  width: 1.25rem; /* Ajustar según sea necesario */
+}
+
+.h-5 {
+  height: 1.25rem; /* Ajustar según sea necesario */
+}
+
+.mr-2 {
+  margin-right: 0.5rem; /* Ajustar según sea necesario */
+}
+
+.mt-auto {
+  margin-top: auto;
+}
+
+.flex-1 {
+  flex: 1;
+}
+
+.p-12 {
+  padding: 3rem; /* Ajustar según sea necesario */
+}
+
+.mb-8 {
+  margin-bottom: 2rem; /* Ajustar según sea necesario */
+}
+
+.text-4xl {
+  font-size: 2.25rem; /* Ajustar según sea necesario */
+}
+
+.font-bold {
+  font-weight: 700;
+}
+
+.w-full {
+  width: 100%;
+}
+
+.max-w-4xl {
+  max-width: 64rem; /* Ajustar según sea necesario */
+}
+
+.grid {
+  display: grid;
+}
+
+.grid-cols-2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.gap-8 {
+  gap: 2rem; /* Ajustar según sea necesario */
+}
+
+.bg-white {
+  background-color: #f9d5a7;
+}
+
+.bg-fondo {
+  background-color: #dddddd;
+}
+
+
+.bg-opacity-50 {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.rounded-lg {
+  border-radius: 0.5rem; /* Ajustar según sea necesario */
+}
+
+.shadow {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
+}
+
+.space-y-4 > * + * {
+  margin-top: 1rem; /* Ajustar según sea necesario */
+}
+
+.pt-4 {
+  padding-top: 1rem; /* Ajustar según sea necesario */
+}
+
+.avatar-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  overflow: hidden;
+  width: 100px;
+  height: 100px;
+}
+
+.avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.mt-2 {
+  margin-top: 0.5rem;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.mb-4 {
+  margin-bottom: 1rem;
+}
+
+.w-full {
+  width: 100%;
+}
+
+.h-10 {
+  height: 2.5rem; /* Ajustar según sea necesario */
+}
+
+.px-4 {
+  padding-left: 1rem; /* Ajustar según sea necesario */
+  padding-right: 1rem; /* Ajustar según sea necesario */
+}
+
+.py-2 {
+  padding-top: 0.5rem; /* Ajustar según sea necesario */
+  padding-bottom: 0.5rem; /* Ajustar según sea necesario */
+}
+
+.rounded-full {
+  border-radius: 9999px;
+}
+
+
+.h-10 {
+  height: 2.5rem; /* Ajustar según sea necesario */
+}
+
+.px-4 {
+  padding-left: 1rem; /* Ajustar según sea necesario */
+  padding-right: 1rem; /* Ajustar según sea necesario */
+}
+
+.py-2 {
+  padding-top: 0.5rem; /* Ajustar según sea necesario */
+  padding-bottom: 0.5rem; /* Ajustar según sea necesario */
+}
+
+.rounded-full {
+  border-radius: 9999px;
+}
+
+.ml-auto {
+  margin-left: auto;
 }
