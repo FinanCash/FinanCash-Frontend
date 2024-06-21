@@ -32,36 +32,53 @@
     </div>
   </aside>
   <main class="flex flex-col items-center justify-center flex-1 p-12">
-    <h1 class="mb-8 text-4xl font-bold text-white">REGISTRAR CLIENTE</h1>
+    <h1 class="mb-8 text-4xl font-bold text-white">{{ edicion ? 'EDITAR CLIENTE' : 'REGISTRAR CLIENTE' }}</h1>
     <div class="w-full max-w-4xl grid grid-cols-2 gap-8 p-8 bg-white bg-opacity-50 rounded-lg shadow">
-      <form (ngSubmit)="onSubmit(userForm)" #userForm="ngForm" class="space-y-4 col-span-2">
+      <form [formGroup]="form" (ngSubmit)="onSubmit()" class="space-y-4 col-span-2">
         <mat-form-field class="col-span-1">
-          <input matInput placeholder="TIPO DE TASA DE INTERES" name="tipo_tasa_interes" ngModel required>
+          <mat-select placeholder="TIPO DE TASA DE INTERES" formControlName="typeRate" required [disabled]="edicion">
+            <mat-option value="nominal">Nominal</mat-option>
+            <mat-option value="efectiva">Efectiva</mat-option>
+          </mat-select>
         </mat-form-field>
         <mat-form-field class="col-span-1">
-          <input matInput placeholder="TASA DE INTERES" name="tasa_interes" ngModel required>
+          <input matInput placeholder="TASA DE INTERES" formControlName="rate" [readonly]="edicion">
         </mat-form-field>
         <mat-form-field class="col-span-1">
-          <input matInput placeholder="PERIODO PARA EL INTERES" name="periodo_tasa_interes" ngModel required>
+          <mat-select placeholder="PERIODO PARA EL INTERES" formControlName="period" required [disabled]="edicion">
+            <mat-option value="mensual">Mensual</mat-option>
+            <mat-option value="bimestral">Bimestral</mat-option>
+            <mat-option value="anual">Anual</mat-option>
+          </mat-select>
         </mat-form-field>
         <mat-form-field class="col-span-1">
-          <input matInput placeholder="DIA DE PAGO" name="dia_pago" ngModel required>
+          <input matInput [matDatepicker]="picker" placeholder="DIA DE PAGO" formControlName="paymentDay" required [readonly]="edicion">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
         </mat-form-field>
         <mat-form-field class="col-span-1">
-          <input matInput placeholder="TIPO DE TASA DE MORATORIA" name="tipo_tasa_moratoria" ngModel required>
+          <mat-select placeholder="TIPO DE TASA DE MORATORIA" formControlName="typePenaltyRate" required [disabled]="edicion">
+            <mat-option value="nominal">Nominal</mat-option>
+            <mat-option value="efectiva">Efectiva</mat-option>
+          </mat-select>
         </mat-form-field>
         <mat-form-field class="col-span-1">
-          <input matInput placeholder="TASA MORATORIA" name="tasa_moratoria" ngModel required>
+          <input matInput placeholder="TASA MORATORIA" formControlName="penaltyRate"  [readonly]="edicion">
         </mat-form-field>
         <mat-form-field class="col-span-1">
-          <input matInput placeholder="PERIODO PARA LA TASA MORATORIA" name="periodo_tasa_moratoria" ngModel required>
+          <mat-select placeholder="PERIODO PARA LA TASA MORATORIA" formControlName="penaltyPeriod" required [disabled]="edicion">
+            <mat-option value="mensual">Mensual</mat-option>
+            <mat-option value="bimestral">Bimestral</mat-option>
+            <mat-option value="anual">Anual</mat-option>
+          </mat-select>
         </mat-form-field>
-        
+      
         <div class="col-span-2 flex justify-between pt-4">
           <button mat-button variant="outline" type="button" (click)="goBack()">REGRESAR</button>
-          <button mat-button type="submit" (click)="onLogin()">REGISTRAR</button>
+          <button mat-button type="submit" [disabled]="edicion">{{ edicion ? 'ACTUALIZAR' : 'REGISTRAR' }}</button>
         </div>
       </form>
+      
     </div>
   </main>
 </div>

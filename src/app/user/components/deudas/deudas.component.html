@@ -40,24 +40,24 @@
         <table mat-table class="w-full caption-bottom text-sm" [dataSource]="dataSource">
           <ng-container matColumnDef="nombre">
             <th mat-header-cell *matHeaderCellDef class="text-left font-medium">Nombre</th>
-            <td mat-cell *matCellDef="let user" class="p-4 align-middle">{{ user.nombre }}</td>
+            <td mat-cell *matCellDef="let user" class="p-4 align-middle">{{ user.clientName }}</td>
           </ng-container>
           <ng-container matColumnDef="dni">
             <th mat-header-cell *matHeaderCellDef class="text-left font-medium">DNI</th>
-            <td mat-cell *matCellDef="let user" class="p-4 align-middle">{{ user.dni }}</td>
+            <td mat-cell *matCellDef="let user" class="p-4 align-middle">{{ user.clientDNI }}</td>
           </ng-container>
           <ng-container matColumnDef="fecha">
             <th mat-header-cell *matHeaderCellDef class="text-left font-medium">Fecha</th>
-            <td mat-cell *matCellDef="let user" class="p-4 align-middle">{{ user.fecha }}</td>
+            <td mat-cell *matCellDef="let user" class="p-4 align-middle">{{ user.dueDate }}</td>
           </ng-container>
           <ng-container matColumnDef="monto">
             <th mat-header-cell *matHeaderCellDef class="text-left font-medium">Monto</th>
-            <td mat-cell *matCellDef="let user" class="p-4 align-middle">{{ user.monto }}</td>
+            <td mat-cell *matCellDef="let user" class="p-4 align-middle">{{ user.totalAmount }}</td>
           </ng-container>
           <ng-container matColumnDef="acciones">
             <th mat-header-cell *matHeaderCellDef class="text-left font-medium">Acciones</th>
             <td mat-cell *matCellDef="let user" class="p-4 align-middle">
-              <button mat-raised-button color="accent" (click)="pagar(user.userId)">Pagar</button>
+              <button mat-raised-button color="accent" (click)="pagar(user.id)">Pagar</button>
             </td>
           </ng-container>
 

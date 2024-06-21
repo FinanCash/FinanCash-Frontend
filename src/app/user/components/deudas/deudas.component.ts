@@ -18,36 +18,49 @@ import { Router } from '@angular/router';
   styleUrl: './deudas.component.css'
 })
 export class DeudasComponent implements OnInit {
-  dataSource!: MatTableDataSource<any>;
+  dataSource: MatTableDataSource<any>;
 
-  constructor(private userService: UserService,private router: Router) {}
-  onLogin() {
-    this.router.navigate(['login']);
+  constructor(private userService: UserService, private router: Router) {
+    this.dataSource = new MatTableDataSource<any>();
   }
-  onUsuarios() {
-    this.router.navigate(['clientes']);
-  }
-  onDeudas() {
-    this.router.navigate(['deudas']);
-  }
-  onCredito() {
-    this.router.navigate(['credito']);
-  }
-  onMenu() {
-    this.router.navigate(['home']);
-  }
+
   ngOnInit(): void {
     this.getData();
   }
 
   getData(): void {
-    const endpoint = `${environment.baseUrl}/clientes`;
-    this.userService.getData(endpoint).subscribe((data: any) => {
-      this.dataSource = new MatTableDataSource<any>(data.users); // Suponiendo que la respuesta de la API tiene una propiedad 'users'
-    });
+    this.userService.getAllDebt().subscribe(
+      (data: any) => {
+        this.dataSource.data = data; // Asigna los datos recibidos al origen de datos de la tabla
+      },
+      (error) => {
+        console.error('Error fetching debt data:', error);
+      }
+    );
   }
 
   pagar(userId: number): void {
     console.log('Usuario ID:', userId, 'ha pagado.');
+    this.userService.updateMonthlyScheduleStatus(userId);
+  }
+
+  onLogin(): void {
+    this.router.navigate(['login']);
+  }
+
+  onUsuarios(): void {
+    this.router.navigate(['clientes']);
+  }
+
+  onDeudas(): void {
+    this.router.navigate(['deudas']);
+  }
+
+  onCredito(): void {
+    this.router.navigate(['credito']);
+  }
+
+  onMenu(): void {
+    this.router.navigate(['home']);
   }
 }

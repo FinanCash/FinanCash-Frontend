@@ -1,0 +1,76 @@
+<div class="container">
+    <aside class="sidebar">
+      <div class="profile">
+        <img src="https://cdn-icons-png.flaticon.com/512/3135/3135768.png" class="avatar-img" />
+        <h2>EMPRESA 1</h2>
+      </div>
+      <nav class="menu">
+        <ul>
+            <li (click)="onLogin()"><mat-icon>home</mat-icon> MENÚ PRINCIPAL</li>
+            <li (click)="onUsuarios()"><mat-icon>people</mat-icon> USUARIOS</li>
+            <li (click)="onCredito()"><mat-icon>credit_card</mat-icon> CRÉDITOS</li>
+            <li (click)="onDeudas()"><mat-icon>file_copy</mat-icon> DEUDAS</li>
+          </ul>
+      </nav>
+      <div class="logout">
+        <mat-icon>logout</mat-icon> CERRAR SESIÓN
+      </div>
+    </aside>
+    <main class="main-content">
+      <h1>JOSE GALVEZ</h1>
+      <div class="info-card">
+        <h3>INFORMACIÓN PERSONAL</h3>
+        <div class="personal-info">
+          <div><strong>NOMBRES:</strong> JOSE</div>
+          <div><strong>APELLIDOS:</strong> GALVEZ</div>
+          <div><strong>F. NACIMIENTO:</strong> 16/11/1992</div>
+          <div><strong>LIMITE CREDITO:</strong> 75000</div>
+          <div><strong>DNI:</strong> 76543212</div>
+          <div><strong>Tipo de tasa:</strong> </div>
+          <div><strong>Tasa de interes</strong> </div>
+          <div><strong>Tasa moratoria</strong> </div>
+          <div><strong>fecha de pago</strong> 29</div>
+        </div>
+      </div>
+      <div class="financial-info">
+        <h3>MARZO 2024</h3>
+        <div><strong>ESTADO:</strong> <span class="status">PENDIENTE</span></div>
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+          <!-- Descripción Column -->
+          <ng-container matColumnDef="descripcion">
+            <th mat-header-cell *matHeaderCellDef> Descripción </th>
+            <td mat-cell *matCellDef="let element"> {{element.descripcion}} </td>
+          </ng-container>
+  
+          <!-- Fecha Column -->
+          <ng-container matColumnDef="fecha">
+            <th mat-header-cell *matHeaderCellDef> Fecha </th>
+            <td mat-cell *matCellDef="let element"> {{element.fecha}} </td>
+          </ng-container>
+  
+          <!-- Monto Column -->
+          <ng-container matColumnDef="monto">
+            <th mat-header-cell *matHeaderCellDef> Monto </th>
+            <td mat-cell *matCellDef="let element"> {{element.monto}} </td>
+          </ng-container>
+  
+          <!-- Intereses Column -->
+          <ng-container matColumnDef="intereses">
+            <th mat-header-cell *matHeaderCellDef> Intereses </th>
+            <td mat-cell *matCellDef="let element"> {{element.intereses}} </td>
+          </ng-container>
+  
+          <!-- Total Column -->
+          <ng-container matColumnDef="total">
+            <th mat-header-cell *matHeaderCellDef> Total </th>
+            <td mat-cell *matCellDef="let element"> {{element.total}} </td>
+          </ng-container>
+  
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+      </div>
+      <button mat-button (click)="goBack()">REGRESAR</button>
+    </main>
+  </div>
+  

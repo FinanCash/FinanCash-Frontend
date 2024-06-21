@@ -1,74 +1,67 @@
 <div class="flex h-screen bg-f2a65a">
-    <aside class="w-64 bg-f9d5a7 p-5 flex flex-col items-center">
-      <div class="flex flex-col items-center">
-        <mat-card class="avatar-card">
-            <img mat-card-image src='https://cdn-icons-png.flaticon.com/512/3135/3135768.png' class="avatar-img" />
-        </mat-card>
-        <h2 class="mt-2 text-lg font-semibold text-white">EMPRESA 1</h2>
+  <aside class="w-64 bg-f9d5a7 p-5 flex flex-col items-center">
+    <div class="flex flex-col items-center">
+      <mat-card class="avatar-card">
+          <img mat-card-image src='https://cdn-icons-png.flaticon.com/512/3135/3135768.png' class="avatar-img" />
+      </mat-card>
+      <h2 class="mt-2 text-lg font-semibold text-white">EMPRESA 1</h2>
+    </div>
+    <nav class="mt-10 w-full">
+      <ul>
+        <li (click)="onLogin()"><mat-icon>home</mat-icon> MENÚ PRINCIPAL</li>
+        <li (click)="onUsuarios()"><mat-icon>people</mat-icon> USUARIOS</li>
+        <li (click)="onCredito()"><mat-icon>credit_card</mat-icon> CRÉDITOS</li>
+        <li (click)="onDeudas()"><mat-icon>file_copy</mat-icon> DEUDAS</li>
+      </ul>
+    </nav>
+    <div class="mt-auto w-full flex items-center cursor-pointer" (click)="onLogin()">
+      <span class="inline-block w-5 h-5 mr-2">🚪</span> CERRAR SESIÓN
+    </div>
+  </aside>
+  <main class="flex flex-col items-center justify-center flex-1 p-12">
+    <h1 class="mb-8 text-4xl font-bold text-white">CRÉDITO</h1>
+    <form [formGroup]="form" (ngSubmit)="aceptar()" class="w-full max-w-4xl grid grid-cols-2 gap-8 p-12 bg-white bg-opacity-50 rounded-lg shadow credit-form">
+      <div class="form-group col-span-1">
+        <label for="dni">DNI:</label>
+        <input type="text" id="dni" name="dni" [(ngModel)]="dni" [ngModelOptions]="{standalone: true}">
+        <button type="button" class="search-button" (click)="buscarCliente()">Buscar</button>
       </div>
-      <nav class="mt-10 w-full">
-        <ul class="space-y-2 w-full">
-          <li class="flex items-center cursor-pointer" (click)="onMenu()">
-            <span class="inline-block w-5 h-5 mr-2">🏠</span> MENÚ PRINCIPAL
-          </li>
-          <li class="flex items-center cursor-pointer" (click)="onUsuarios()">
-            <span class="inline-block w-5 h-5 mr-2">👥</span> USUARIOS
-          </li>
-          <li class="flex items-center cursor-pointer" (click)="onCredito()">
-            <span class="inline-block w-5 h-5 mr-2">💳</span> CRÉDITOS
-          </li>
-          <li class="flex items-center cursor-pointer" (click)="onDeudas()">
-            <span class="inline-block w-5 h-5 mr-2">📄</span> DEUDAS
-          </li>
-        </ul>
-      </nav>
-      <div class="mt-auto w-full flex items-center cursor-pointer" (click)="onLogin()">
-        <span class="inline-block w-5 h-5 mr-2">🚪</span> CERRAR SESIÓN
+      <div class="form-group col-span-1">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" [(ngModel)]="nombre" [ngModelOptions]="{standalone: true}" readonly class="readonly-input">
       </div>
-    </aside>
-    <main class="flex flex-col items-center justify-center flex-1 p-12">
-      <h1 class="mb-8 text-4xl font-bold text-white">CRÉDITO</h1>
-      <form class="w-full max-w-4xl grid grid-cols-2 gap-8 p-12 bg-white bg-opacity-50 rounded-lg shadow credit-form">
-        <div class="form-group col-span-1">
-          <label for="dni">DNI:</label>
-          <input type="text" id="dni" name="dni">
-          <button type="button" class="search-button">Buscar</button>
-        </div>
-        <div class="form-group col-span-1">
-          <label for="nombre">Nombre:</label>
-          <input type="text" id="nombre" name="nombre" readonly class="readonly-input">
-        </div>
-        <div class="form-group col-span-1">
-          <label for="apellidos">Apellidos:</label>
-          <input type="text" id="apellidos" name="apellidos" readonly class="readonly-input">
-        </div>
-        <div class="form-group col-span-1">
-          <label for="monto">Monto:</label>
-          <input type="text" id="monto" name="monto">
-        </div>
-        <div class="form-group col-span-1">
-          <label for="cuotas">Cuotas:</label>
-          <input type="text" id="cuotas" name="cuotas">
-        </div>
-        <div class="form-group col-span-1">
-          <label for="tipo-interes">Tipo de Interés:</label>
-          <input type="text" id="tipo-interes" name="tipo-interes" readonly class="readonly-input">
-        </div>
-        <div class="form-group col-span-1">
-          <label for="tasa-interes">Tasa de Interés:</label>
-          <input type="text" id="tasa-interes" name="tasa-interes" readonly class="readonly-input">
-        </div>
-        <div class="form-group col-span-1">
-          <label for="periodo">Período:</label>
-          <input type="text" id="periodo" name="periodo" readonly class="readonly-input">
-        </div>
-        <div class="form-group col-span-1">
-          <label for="dia-pago">Día de Pago:</label>
-          <input type="text" id="dia-pago" name="dia-pago">
-        </div>
-        <div class="col-span-2 flex justify-between pt-4">
-          <button type="button" class="generate-button" (click)="onCronograma()">Generar Cronograma</button>
-        </div>
-      </form>
-    </main>
-  </div>
+      <div class="form-group col-span-1">
+        <label for="apellidos">Apellidos:</label>
+        <input type="text" id="apellidos" name="apellidos" [(ngModel)]="apellidos" [ngModelOptions]="{standalone: true}" readonly class="readonly-input">
+      </div>
+      <div class="form-group col-span-1">
+        <label for="monto">Monto:</label>
+        <input type="text" id="monto" name="monto" formControlName="Amount">
+      </div>
+      <div class="form-group col-span-1">
+        <label for="cuotas">Cuotas:</label>
+        <input type="text" id="cuotas" name="cuotas" formControlName="TotalInstallments">
+      </div>
+      <div class="form-group col-span-1">
+        <label for="tipo-interes">Tipo de Interés:</label>
+        <input type="text" id="tipo-interes" name="tipo-interes" [(ngModel)]="tipointeres" [ngModelOptions]="{standalone: true}" readonly class="readonly-input">
+      </div>
+      <div class="form-group col-span-1">
+        <label for="tasa-interes">Tasa de Interés:</label>
+        <input type="text" id="tasa-interes" name="tasa-interes" [(ngModel)]="tasainteres" [ngModelOptions]="{standalone: true}" readonly class="readonly-input">
+      </div>
+      <div class="form-group col-span-1">
+        <label for="periodo">Período:</label>
+        <input type="text" id="periodo" name="periodo" [(ngModel)]="periodo" [ngModelOptions]="{standalone: true}" readonly class="readonly-input">
+      </div>
+      <div class="form-group col-span-1">
+        <label for="dia-pago">Día de Pago:</label>
+        <input type="text" id="dia-pago" name="dia-pago" [(ngModel)]="pago" [ngModelOptions]="{standalone: true}" readonly class="readonly-input">
+      </div>
+      <div class="col-span-2 flex justify-between pt-4">
+        <button mat-button type="submit">CRONOGRAMA</button>
+      </div>
+    </form>
+    
+  </main>
+</div>

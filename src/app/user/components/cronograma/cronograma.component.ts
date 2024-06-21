@@ -62,9 +62,9 @@ export class CronogramaComponent implements OnInit {
     this.router.navigate(['home']);
   }
 
-  ngOnInit(): void {
-    this.userService.getData('/api/data').subscribe((data: Row[]) => {
+  *ngOnInit() {
+    this.userService.getClients().subscribe((data: Row[]) => {
       this.rows = data;
     });
-  }
+}
 }

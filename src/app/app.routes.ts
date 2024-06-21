@@ -9,6 +9,7 @@ import { ClientesComponent } from './user/components/clientes/clientes.component
 import { CreditoComponent } from './user/components/Credito/credito.component';
 import { RegistrarClienteComponent } from './user/components/registrar-cliente/registrar-cliente.component';
 import { RegistrarClientesSiguienteComponent } from './user/components/registrar-clientes-siguiente/registrar-clientes-siguiente.component';
+import { VisualizarUsuarioComponent } from './user/components/visualizar-usuario/visualizar-usuario.component';
 
 export const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -19,7 +20,8 @@ export const routes: Routes = [
   { path: 'clientes', component: ClientesComponent },
   { path: 'credito', component: CreditoComponent },
   { path: 'registro', component: RegistrarClienteComponent },
-  { path: 'contrato', component: RegistrarClientesSiguienteComponent },
+  { path: 'contrato/:id', component: RegistrarClientesSiguienteComponent },
+  { path: 'visualizar', component: VisualizarUsuarioComponent },
   { path: '', pathMatch: 'full', redirectTo: 'login' }, // Redirige al login cuando la URL sea vacía
 
 ];

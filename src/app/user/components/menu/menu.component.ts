@@ -43,15 +43,15 @@ export class MenuComponent implements OnInit {
   }
 
   ngOnInit() {
-    // Cambia los endpoints según sea necesario
-    this.userService.getData('https://api.example.com/clientes').subscribe(data => {
-      this.clientes = data.count;
+
+    this.userService.getClients().subscribe(data => {
+      this.clientes = data.length;
     });
-    this.userService.getData('https://api.example.com/saldo-total').subscribe(data => {
+    this.userService.getClients().subscribe(data => {
       this.saldoTotal = data.total;
     });
-    this.userService.getData('https://api.example.com/clientes-activos').subscribe(data => {
-      this.clientesActivos = data.count;
+    this.userService.getClients().subscribe(data => {
+      this.clientesActivos = data.length;
     });
   }
 }

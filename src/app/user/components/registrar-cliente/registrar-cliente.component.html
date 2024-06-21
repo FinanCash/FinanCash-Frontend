@@ -34,31 +34,54 @@
   <main class="flex flex-col items-center justify-center flex-1 p-12">
     <h1 class="mb-8 text-4xl font-bold text-white">REGISTRAR CLIENTE</h1>
     <div class="w-full max-w-4xl grid grid-cols-2 gap-8 p-8 bg-white bg-opacity-50 rounded-lg shadow">
-      <form (ngSubmit)="onSubmit(userForm)" #userForm="ngForm" class="space-y-4 col-span-2">
+      <form [formGroup]="form" (ngSubmit)="aceptar()" class="space-y-4 col-span-2">
         <mat-form-field class="col-span-1">
-          <input matInput placeholder="NOMBRE" name="name" ngModel required>
+          <input matInput placeholder="NOMBRE" formControlName="firstName">
+          <mat-error *ngIf="obtenerControlCampo('firstName').invalid && (obtenerControlCampo('firstName').dirty || obtenerControlCampo('firstName').touched)">
+            Nombre es requerido y solo puede contener letras
+          </mat-error>
         </mat-form-field>
         <mat-form-field class="col-span-1">
-          <input matInput placeholder="APELLIDOS" name="lastName" ngModel required>
+          <input matInput placeholder="APELLIDOS" formControlName="lastName">
+          <mat-error *ngIf="obtenerControlCampo('lastName').invalid && (obtenerControlCampo('lastName').dirty || obtenerControlCampo('lastName').touched)">
+            Apellidos son requeridos y solo pueden contener letras
+          </mat-error>
         </mat-form-field>
         <mat-form-field class="col-span-1">
-          <input matInput placeholder="DNI" name="dni" ngModel required>
+          <input matInput  placeholder="DNI" formControlName="dni">
+          <mat-error *ngIf="obtenerControlCampo('dni').invalid && (obtenerControlCampo('dni').dirty || obtenerControlCampo('dni').touched)">
+            DNI debe tener 8 dígitos y solo puede contener números
+          </mat-error>
         </mat-form-field>
         <mat-form-field class="col-span-1">
-          <input matInput placeholder="LÍMITE DE CRÉDITO" name="creditLimit" ngModel required>
+          <input matInput  placeholder="LÍMITE DE CRÉDITO" formControlName="creditLimit">
+          <mat-error *ngIf="obtenerControlCampo('creditLimit').invalid && (obtenerControlCampo('creditLimit').dirty || obtenerControlCampo('creditLimit').touched)">
+            Límite de crédito es requerido
+          </mat-error>
         </mat-form-field>
         <mat-form-field class="col-span-1">
-          <input matInput placeholder="DIRECCIÓN" name="address" ngModel required>
+          <input matInput placeholder="DIRECCIÓN" formControlName="address">
+          <mat-error *ngIf="obtenerControlCampo('address').invalid && (obtenerControlCampo('address').dirty || obtenerControlCampo('address').touched)">
+            Dirección es requerida
+          </mat-error>
         </mat-form-field>
         <mat-form-field class="col-span-1">
-          <input matInput placeholder="TELÉFONO" name="phone" ngModel required>
+          <input matInput  placeholder="TELÉFONO" formControlName="phone">
+          <mat-error *ngIf="obtenerControlCampo('phone').invalid && (obtenerControlCampo('phone').dirty || obtenerControlCampo('phone').touched)">
+            Teléfono debe tener 9 dígitos y solo puede contener números
+          </mat-error>
         </mat-form-field>
         <mat-form-field class="col-span-1">
-          <input matInput placeholder="FECHA DE NACIMIENTO" name="birthdate" ngModel required>
+          <input matInput [matDatepicker]="picker" placeholder="FECHA DE NACIMIENTO" formControlName="birthDate">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+          <mat-error *ngIf="obtenerControlCampo('birthDate').invalid && (obtenerControlCampo('birthDate').dirty || obtenerControlCampo('birthDate').touched)">
+            Fecha de nacimiento es requerida
+          </mat-error>
         </mat-form-field>
         <div class="col-span-2 flex justify-between pt-4">
           <button mat-button variant="outline" type="button" (click)="goBack()">REGRESAR</button>
-          <button mat-button type="submit" (click)="onRegistrar()">SIGUIENTE</button>
+          <button mat-button type="submit">REGISTRAR</button>
         </div>
       </form>
     </div>
